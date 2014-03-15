@@ -98,6 +98,7 @@ public class Importer {
             }
             for (Map.Entry<String, Map<String, Object>> entry : data.getIndexData().entrySet()) {
                 final BatchInserterIndex index = indexFor(entry.getKey());
+                System.out.println("index:"+entry.getKey());
                 if (index==null)
                     throw new IllegalStateException("Index "+entry.getKey()+" not configured.");
                 index.add(id, entry.getValue());
@@ -108,7 +109,9 @@ public class Importer {
     }
 
     private long lookup(String index,String property,Object value) {
+        System.out.println("index:property:value "+index+","+property+","+value);
         Long id = indexFor(index).get(property, value).getSingle();
+        System.out.println("'id:'"+id);
         return id==null ? -1 : id;
     }
 
@@ -126,6 +129,7 @@ public class Importer {
 
         while (data.processLine(null)) {
             final Map<String, Object> properties = data.getProperties();
+            System.out.println("properties:"+properties);
             final long start = id(data, 0);
             final long end = id(data, 1);
             if (start==-1 || end==-1) {
@@ -133,6 +137,7 @@ public class Importer {
                 continue;
             }
             final RelType type = relType.update(data.getTypeLabels()[0]);
+            System.out.println("type:"+type);
             final long id = db.createRelationship(start, end, type, properties);
             for (Map.Entry<String, Map<String, Object>> entry : data.getIndexData().entrySet()) {
                 indexFor(entry.getKey()).add(id, entry.getValue());
@@ -162,6 +167,8 @@ public class Importer {
         if (header.indexName == null || header.type == Type.ID) {
             return id(value);
         }
+        System.out.println("data:"+data);
+        System.out.println("header.indexName, header.name, value :"+header.indexName+", "+header.name+", "+value);
         return lookup(header.indexName, header.name, value);
     }
 
@@ -173,7 +180,7 @@ public class Importer {
             index.add(id(data.getValue(0)), properties);
             report.dots();
         }
-                
+
         report.finishImport("Done inserting into " + indexName + " Index");
     }
 
@@ -217,7 +224,7 @@ public class Importer {
             for (IndexInfo indexInfo : config.getIndexInfos()) {
                 if (indexInfo.shouldImportFile()) importIndex(indexInfo);
             }
-		} finally {
+        } finally {
             finish();
         }
     }

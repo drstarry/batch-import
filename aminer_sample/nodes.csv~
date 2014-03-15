@@ -1,0 +1,6 @@
+sid:string:pubs	title	cate	jconf	startpage	endpage	year	isbn	publisher	authors	school	dblpeelink	dblplink	issearch	isuseradd	pubkey	isextracted	ncitation	updated	u_citation_gen
+2	OQL[C++]: Extending C++ with an Object Query Capability.	15	0	69	88	1995		-1	José A. Blakeley			db/books/collections/kim95.html#Blakeley95	0	0	books/acm/kim95/Blakeley95	nan	14	nan	0
+3	Transaction Management in Multidatabase Systems.	15	0	573	591	1995		-1	Yuri Breitbart,Hector Garcia-Molina,Abraham Silberschatz			db/books/collections/kim95.html#BreitbartGS95	0	0	books/acm/kim95/BreitbartGS95	nan	22	nan	31
+4	Overview of the ADDS System.	15	0	683	701	1995		-1	Yuri Breitbart,Tom C. Reyes			db/books/collections/kim95.html#BreitbartR95	0	0	books/acm/kim95/BreitbartR95	nan	-1	nan	31
+5	Multimedia Information Systems: Issues and Approaches.	15	0	318	337	1995		-1	Stavros Christodoulakis,Leonidas Koveos			db/books/collections/kim95.html#ChristodoulakisK95	0	0	books/acm/kim95/ChristodoulakisK95	nan	25	nan	31
+

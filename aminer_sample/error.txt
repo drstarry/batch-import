@@ -1,0 +1,13 @@
+Importing 6 Nodes took 0 seconds
+properties:{}
+data:org.neo4j.batchimport.importer.CsvLineData@488b0bea
+header.indexName, header.name, value :authors    sid, sid, 444842  2   1   AUTHOR_OF
+index:property:value authors    sid,sid,444842  2   1   AUTHOR_OF
+
+
+Importing 2 Nodes took 0 seconds
+properties:{counter=1, since=1998-07-10}
+data:org.neo4j.batchimport.importer.CsvLineData@64f4b30a
+header.indexName, header.name, value :users, name, Michael
+index:property:value users,name,Michael
+'id:'1
